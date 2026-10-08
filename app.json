@@ -30,6 +30,93 @@
   "bugs": {
     "url": "https://github.com/kanestapler/homey-myq/issues"
   },
+  "flow": {
+    "triggers": [
+      {
+        "id": "door_opening",
+        "title": {
+          "en": "Started opening"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=garage-door"
+          }
+        ]
+      },
+      {
+        "id": "door_closing",
+        "title": {
+          "en": "Started closing"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=garage-door"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "door_state_is",
+        "title": {
+          "en": "Door state !{{is|isn't}}"
+        },
+        "titleFormatted": {
+          "en": "Door state !{{is|isn't}} [[state]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=garage-door"
+          },
+          {
+            "name": "state",
+            "type": "dropdown",
+            "title": {
+              "en": "State"
+            },
+            "values": [
+              {
+                "id": "open",
+                "title": {
+                  "en": "Open"
+                }
+              },
+              {
+                "id": "closed",
+                "title": {
+                  "en": "Closed"
+                }
+              },
+              {
+                "id": "opening",
+                "title": {
+                  "en": "Opening"
+                }
+              },
+              {
+                "id": "closing",
+                "title": {
+                  "en": "Closing"
+                }
+              },
+              {
+                "id": "stopped",
+                "title": {
+                  "en": "Stopped"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "drivers": [
     {
       "name": {

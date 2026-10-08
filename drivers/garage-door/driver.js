@@ -4,6 +4,16 @@ const Homey = require('homey');
 
 class GarageDoorDriver extends Homey.Driver {
 
+  async onInit() {
+    this.triggers = {
+      opening: this.homey.flow.getDeviceTriggerCard('door_opening'),
+      closing: this.homey.flow.getDeviceTriggerCard('door_closing'),
+    };
+
+    this.homey.flow.getConditionCard('door_state_is')
+      .registerRunListener(async ({ device, state }) => device.getCapabilityValue('myq_door_state') === state);
+  }
+
   async onPair(session) {
     this.registerTokenHandlers(session);
 

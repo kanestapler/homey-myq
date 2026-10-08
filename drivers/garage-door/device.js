@@ -58,9 +58,19 @@ class GarageDoorDevice extends Homey.Device {
     await this.setAvailable();
 
     const doorState = DOOR_STATES.includes(state.door_state) ? state.door_state : 'unknown';
-    if (doorState !== this.getCapabilityValue('myq_door_state')) {
+    const previous = this.getCapabilityValue('myq_door_state');
+    if (doorState !== previous) {
       this.log(`Door is ${doorState}`);
       await this.setCapabilityValue('myq_door_state', doorState);
+
+      // A poll can miss the short opening/closing phase, so a jump between the end positions
+      // counts as well.
+      const { triggers } = this.driver;
+      if (doorState === 'opening' || (doorState === 'open' && previous === 'closed')) {
+        triggers.opening.trigger(this).catch(this.error);
+      } else if (doorState === 'closing' || (doorState === 'closed' && previous === 'open')) {
+        triggers.closing.trigger(this).catch(this.error);
+      }
     }
     if (doorState === 'unknown') return;
 
