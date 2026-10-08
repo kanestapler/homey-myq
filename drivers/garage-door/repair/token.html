@@ -1,0 +1,38 @@
+<form class="homey-form" id="myq-form">
+  <p id="myq-intro"></p>
+  <div class="homey-form-group">
+    <label class="homey-form-label" for="myq-token" id="myq-label"></label>
+    <input class="homey-form-input" id="myq-token" type="password" autocomplete="off" />
+  </div>
+  <button class="homey-button-primary-full" id="myq-submit" type="submit"></button>
+</form>
+
+<script type="application/javascript">
+  (function () {
+    const form = document.getElementById('myq-form');
+    const input = document.getElementById('myq-token');
+    const button = document.getElementById('myq-submit');
+
+    Homey.setTitle(Homey.__('pair.token.title'));
+    document.getElementById('myq-intro').textContent = Homey.__('pair.token.intro');
+    document.getElementById('myq-label').textContent = Homey.__('pair.token.label');
+    button.textContent = Homey.__('pair.token.submit');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!input.value.trim()) return;
+
+      button.classList.add('is-loading');
+      Homey.emit('set_token', input.value)
+        .then(function () {
+          Homey.done();
+        })
+        .catch(function (err) {
+          Homey.alert(err.message || String(err), 'error');
+        })
+        .finally(function () {
+          button.classList.remove('is-loading');
+        });
+    });
+  })();
+</script>

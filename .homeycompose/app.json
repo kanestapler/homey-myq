@@ -1,0 +1,28 @@
+{
+  "id": "com.myq",
+  "version": "1.0.0",
+  "compatibility": ">=12.0.0",
+  "sdk": 3,
+  "platforms": ["local"],
+  "name": {
+    "en": "myQ"
+  },
+  "description": {
+    "en": "Your garage door, always in the loop"
+  },
+  "category": ["security"],
+  "permissions": [],
+  "brandColor": "#0072CE",
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Kane Stapler"
+  },
+  "source": "https://github.com/kanestapler/homey-myq",
+  "bugs": {
+    "url": "https://github.com/kanestapler/homey-myq/issues"
+  }
+}

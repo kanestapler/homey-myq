@@ -1,0 +1,17 @@
+{
+  "pair": {
+    "token": {
+      "title": "Connect your myQ account",
+      "intro": "myQ has no public sign-in for other apps, so this app needs a refresh token captured from the official myQ app. See the app's GitHub page for how to get one.",
+      "label": "Refresh token",
+      "submit": "Connect"
+    }
+  },
+  "errors": {
+    "token_rejected": "myQ no longer accepts the refresh token. Repair this device to enter a new one.",
+    "offline": "The garage door opener is offline.",
+    "not_found": "This garage door is no longer in your myQ account.",
+    "unattended_open_not_allowed": "myQ does not allow this door to be opened remotely.",
+    "unattended_close_not_allowed": "myQ does not allow this door to be closed remotely."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": {
+    "en": "Garage Door"
+  },
+  "class": "garagedoor",
+  "capabilities": ["garagedoor_closed", "myq_door_state"],
+  "platforms": ["local"],
+  "connectivity": ["cloud"],
+  "images": {
+    "small": "/drivers/garage-door/assets/images/small.png",
+    "large": "/drivers/garage-door/assets/images/large.png",
+    "xlarge": "/drivers/garage-door/assets/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "token"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "token"
+    }
+  ]
+}

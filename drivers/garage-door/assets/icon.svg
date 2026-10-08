@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 960">
+  <path d="M480 120 100 400v440h120V480h520v360h120V400L480 120Z"/>
+  <rect x="280" y="540" width="400" height="60" rx="12"/>
+  <rect x="280" y="660" width="400" height="60" rx="12"/>
+  <rect x="280" y="780" width="400" height="60" rx="12"/>
+</svg>

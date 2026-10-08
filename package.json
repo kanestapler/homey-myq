@@ -1,0 +1,13 @@
+{
+  "name": "com.myq",
+  "version": "1.0.0",
+  "description": "myQ garage door openers for Homey",
+  "main": "app.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "validate": "homey app validate --level publish",
+    "start": "homey app run --remote",
+    "test:api": "node scripts/test-api.js"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Door state"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/icon.svg",
+  "values": [
+    { "id": "open", "title": { "en": "Open" } },
+    { "id": "closed", "title": { "en": "Closed" } },
+    { "id": "opening", "title": { "en": "Opening" } },
+    { "id": "closing", "title": { "en": "Closing" } },
+    { "id": "stopped", "title": { "en": "Stopped" } },
+    { "id": "unknown", "title": { "en": "Unknown" } }
+  ]
+}

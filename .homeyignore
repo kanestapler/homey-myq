@@ -1,0 +1,5 @@
+scripts/
+.myq-tokens.json
+README.md
+.git/
+.gitignore
