@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBFCFD"/>
+      <stop offset="1" stop-color="#E3E9F0"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7FB6EA"/>
+      <stop offset="1" stop-color="#0072CE"/>
+    </linearGradient>
+    <radialGradient id="shadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#000" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1000" height="1000" fill="#fff"/>
+  <ellipse cx="500" cy="872" rx="390" ry="34" fill="url(#shadow)"/>
+
+  <!-- frame -->
+  <rect x="130" y="170" width="740" height="700" rx="18" fill="#3C4A5C"/>
+  <rect x="166" y="206" width="668" height="664" fill="#C3CDD8"/>
+
+  <!-- four panels -->
+  <g stroke="#B7C2CF" stroke-width="3">
+    <rect x="170" y="210" width="660" height="161" fill="url(#panel)"/>
+    <rect x="170" y="375" width="660" height="161" fill="url(#panel)"/>
+    <rect x="170" y="540" width="660" height="161" fill="url(#panel)"/>
+    <rect x="170" y="705" width="660" height="161" fill="url(#panel)"/>
+  </g>
+
+  <!-- windows in the top panel -->
+  <g stroke="#3C4A5C" stroke-width="8">
+    <rect x="214" y="246" width="124" height="90" rx="8" fill="url(#glass)"/>
+    <rect x="362" y="246" width="124" height="90" rx="8" fill="url(#glass)"/>
+    <rect x="514" y="246" width="124" height="90" rx="8" fill="url(#glass)"/>
+    <rect x="662" y="246" width="124" height="90" rx="8" fill="url(#glass)"/>
+  </g>
+
+  <!-- embossed panel details -->
+  <g fill="none" stroke="#CBD4DE" stroke-width="5">
+    <rect x="214" y="410" width="272" height="92" rx="6"/><rect x="514" y="410" width="272" height="92" rx="6"/>
+    <rect x="214" y="575" width="272" height="92" rx="6"/><rect x="514" y="575" width="272" height="92" rx="6"/>
+    <rect x="214" y="740" width="272" height="92" rx="6"/><rect x="514" y="740" width="272" height="92" rx="6"/>
+  </g>
+
+  <!-- handle -->
+  <rect x="455" y="842" width="90" height="12" rx="6" fill="#3C4A5C"/>
+</svg>

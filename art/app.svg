@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A2550"/>
+      <stop offset="0.55" stop-color="#0B4F9E"/>
+      <stop offset="1" stop-color="#F29B5B"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE9B0"/>
+      <stop offset="1" stop-color="#FFC55C"/>
+    </linearGradient>
+    <linearGradient id="spill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFD98A" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#FFD98A" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="door" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F4F7FA"/>
+      <stop offset="1" stop-color="#D5DEE8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="700" fill="url(#sky)"/>
+  <g fill="#fff">
+    <circle cx="120" cy="90" r="3"/><circle cx="260" cy="150" r="2"/><circle cx="820" cy="70" r="3"/>
+    <circle cx="900" cy="180" r="2"/><circle cx="700" cy="120" r="2"/><circle cx="60" cy="230" r="2"/>
+  </g>
+
+  <!-- ground and driveway -->
+  <rect y="560" width="1000" height="140" fill="#0B1D3A"/>
+  <path d="M330 560h340l130 140H200Z" fill="#1B3157"/>
+  <path d="M330 560h340l110 118H220Z" fill="url(#spill)"/>
+
+  <!-- garage -->
+  <path d="M210 300 500 140l290 160v30H210Z" fill="#07162E"/>
+  <rect x="240" y="320" width="520" height="240" fill="#16305A"/>
+
+  <!-- opening with light inside -->
+  <rect x="330" y="370" width="340" height="190" fill="url(#glow)"/>
+  <rect x="330" y="548" width="340" height="12" fill="#E0A640"/>
+
+  <!-- door, two thirds raised -->
+  <g>
+    <rect x="330" y="370" width="340" height="76" fill="url(#door)"/>
+    <path d="M330 408h340" stroke="#B4C0CE" stroke-width="4"/>
+    <rect x="330" y="442" width="340" height="6" fill="#8D9BAC"/>
+  </g>
+  <rect x="318" y="358" width="364" height="14" rx="4" fill="#07162E"/>
+
+  <!-- signal arcs -->
+  <g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round">
+    <path d="M470 262a44 44 0 0 1 60 0"/>
+    <path d="M448 240a76 76 0 0 1 104 0" opacity="0.7"/>
+  </g>
+  <circle cx="500" cy="286" r="9" fill="#fff"/>
+</svg>
