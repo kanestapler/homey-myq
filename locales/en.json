@@ -7,10 +7,16 @@
       "submit": "Connect"
     }
   },
+  "camera": {
+    "snapshot": "Live snapshot",
+    "last_recording": "Last recording",
+    "no_recording": "This camera has no recordings yet."
+  },
   "errors": {
     "token_rejected": "myQ no longer accepts the refresh token. Repair this device to enter a new one.",
     "offline": "The garage door opener is offline.",
-    "not_found": "This garage door is no longer in your myQ account.",
+    "camera_offline": "The camera is offline.",
+    "not_found": "This device is no longer in your myQ account.",
     "unattended_open_not_allowed": "myQ does not allow this door to be opened remotely.",
     "unattended_close_not_allowed": "myQ does not allow this door to be closed remotely."
   }

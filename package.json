@@ -1,7 +1,7 @@
 {
   "name": "com.myq",
   "version": "1.0.0",
-  "description": "myQ garage door openers for Homey",
+  "description": "myQ garage door openers and cameras for Homey",
   "main": "app.js",
   "license": "MIT",
   "private": true,

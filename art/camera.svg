@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBFCFD"/>
+      <stop offset="1" stop-color="#E3E9F0"/>
+    </linearGradient>
+    <radialGradient id="glass" cx="0.38" cy="0.35" r="0.7">
+      <stop offset="0" stop-color="#7FB6EA"/>
+      <stop offset="0.55" stop-color="#0072CE"/>
+      <stop offset="1" stop-color="#0B2B4C"/>
+    </radialGradient>
+    <radialGradient id="shadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#000" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1000" height="1000" fill="#fff"/>
+  <ellipse cx="500" cy="872" rx="260" ry="30" fill="url(#shadow)"/>
+
+  <!-- stand -->
+  <rect x="470" y="700" width="60" height="120" rx="12" fill="#3C4A5C"/>
+  <rect x="330" y="812" width="340" height="52" rx="26" fill="#3C4A5C"/>
+
+  <!-- body -->
+  <rect x="210" y="170" width="580" height="560" rx="120" fill="#3C4A5C"/>
+  <rect x="236" y="196" width="528" height="508" rx="100" fill="url(#body)"/>
+
+  <!-- lens -->
+  <circle cx="500" cy="440" r="172" fill="#3C4A5C"/>
+  <circle cx="500" cy="440" r="138" fill="#1B2533"/>
+  <circle cx="500" cy="440" r="104" fill="url(#glass)"/>
+  <circle cx="462" cy="398" r="26" fill="#fff" opacity="0.75"/>
+
+  <!-- status light -->
+  <circle cx="500" cy="650" r="16" fill="#0072CE"/>
+</svg>

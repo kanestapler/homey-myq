@@ -4,3 +4,4 @@ env.json
 .myq-tokens.json
 *.mitm
 flows
+.snapshot.jpg

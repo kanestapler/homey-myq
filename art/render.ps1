@@ -31,3 +31,4 @@ function Render([string]$svg, [int]$w, [int]$h, [string]$outDir, [object[]]$size
 
 Render "app.svg" 1000 700 (Join-Path $root "assets\images") @(@{ name = 'large'; w = 500; h = 350 }, @{ name = 'small'; w = 250; h = 175 })
 Render "driver.svg" 1000 1000 (Join-Path $root "drivers\garage-door\assets\images") @(@{ name = 'large'; w = 500; h = 500 }, @{ name = 'small'; w = 75; h = 75 })
+Render "camera.svg" 1000 1000 (Join-Path $root "drivers\camera\assets\images") @(@{ name = 'large'; w = 500; h = 500 }, @{ name = 'small'; w = 75; h = 75 })

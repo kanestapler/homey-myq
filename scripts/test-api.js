@@ -4,6 +4,7 @@
 //   node scripts/test-api.js            list accounts and devices
 //   node scripts/test-api.js watch      print door state changes
 //   node scripts/test-api.js open|close send a door command, then watch
+//   node scripts/test-api.js camera     list cameras and recent recordings, save a snapshot
 
 const fs = require('fs');
 const path = require('path');
@@ -31,6 +32,11 @@ async function main() {
     }
   }
 
+  if (command === 'camera') {
+    await testCameras(api);
+    return;
+  }
+
   if (!command || !doors.length) return;
   const door = doors[0];
 
@@ -48,6 +54,24 @@ async function main() {
     }
     await new Promise((resolve) => setTimeout(resolve, 2000));
   }
+}
+
+async function testCameras(api) {
+  const cameras = await api.getCameras();
+  for (const camera of cameras) {
+    console.log(`camera ${mask(camera.id)} model=${camera.hw?.model} online=${camera.status?.online}`);
+  }
+  if (!cameras.length) return;
+
+  for (const event of await api.getCameraEvents({ limit: 5 })) {
+    console.log(`  ${event.dttm} ${event.status} people=${event.tags?.peopleCount || 0}`
+      + ` vehicles=${event.tags?.movingVehicleCount || 0}`);
+  }
+
+  // Written next to the tokens, so it is gitignored too.
+  const snapshot = await api.getCameraSnapshot(cameras[0].id);
+  fs.writeFileSync(path.join(__dirname, '..', '.snapshot.jpg'), snapshot);
+  console.log(`saved .snapshot.jpg (${snapshot.length} bytes)`);
 }
 
 main().catch((err) => {

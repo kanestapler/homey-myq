@@ -7,6 +7,8 @@ const POLL_INTERVAL = 15 * 1000;
 // Used while a door is moving or a command was just sent, same rate as the official app.
 const FAST_POLL_INTERVAL = 2 * 1000;
 const FAST_POLL_DURATION = 60 * 1000;
+// Camera recordings are not checked during fast polls.
+const EVENT_POLL_INTERVAL = 15 * 1000;
 const MAX_BACKOFF = 5 * 60 * 1000;
 const FAILURES_BEFORE_UNAVAILABLE = 3;
 
@@ -16,6 +18,7 @@ class MyQApp extends Homey.App {
     this.devices = new Set();
     this.failures = 0;
     this.fastUntil = 0;
+    this.lastEventPoll = 0;
     this.authFailed = false;
 
     this.api = new MyQApi({
@@ -82,6 +85,9 @@ class MyQApp extends Homey.App {
           if (device.isMoving()) this.fastUntil = Date.now() + FAST_POLL_DURATION;
         }
       }
+      if (Date.now() - this.lastEventPoll >= EVENT_POLL_INTERVAL) {
+        await this.pollCameraEvents();
+      }
       this.failures = 0;
       if (Date.now() < this.fastUntil) delay = FAST_POLL_INTERVAL;
     } catch (err) {
@@ -99,6 +105,27 @@ class MyQApp extends Homey.App {
     }
 
     this.schedulePoll(delay);
+  }
+
+  async pollCameraEvents() {
+    const cameras = [...this.devices].filter((device) => device.onCameraEvents);
+    if (!cameras.length) return;
+
+    // A camera service problem must not take the garage doors down with it.
+    let events;
+    try {
+      events = await this.api.getCameraEvents();
+    } catch (err) {
+      if (err instanceof MyQAuthError) throw err;
+      this.error('Fetching camera recordings failed:', err.message);
+      return;
+    } finally {
+      this.lastEventPoll = Date.now();
+    }
+    for (const camera of cameras) {
+      const cameraId = camera.getStoreValue('cameraId');
+      await camera.onCameraEvents(events.filter((event) => String(event.srcId) === cameraId));
+    }
   }
 
   setDevicesUnavailable(message) {

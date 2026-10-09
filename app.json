@@ -16,6 +16,17 @@
   "category": [
     "security"
   ],
+  "tags": {
+    "en": [
+      "myQ",
+      "garage door",
+      "garage",
+      "Chamberlain",
+      "LiftMaster",
+      "Craftsman",
+      "camera"
+    ]
+  },
   "permissions": [],
   "brandColor": "#0072CE",
   "images": {
@@ -32,6 +43,123 @@
   },
   "flow": {
     "triggers": [
+      {
+        "id": "camera_motion",
+        "title": {
+          "en": "Recorded motion"
+        },
+        "hint": {
+          "en": "A new recording was made. Can take up to half a minute to reach Homey."
+        },
+        "tokens": [
+          {
+            "name": "image",
+            "type": "image",
+            "title": {
+              "en": "Recording"
+            }
+          },
+          {
+            "name": "people",
+            "type": "number",
+            "title": {
+              "en": "People"
+            },
+            "example": 1
+          },
+          {
+            "name": "vehicles",
+            "type": "number",
+            "title": {
+              "en": "Vehicles"
+            },
+            "example": 0
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=camera"
+          }
+        ]
+      },
+      {
+        "id": "camera_person",
+        "title": {
+          "en": "Detected a person"
+        },
+        "tokens": [
+          {
+            "name": "image",
+            "type": "image",
+            "title": {
+              "en": "Recording"
+            }
+          },
+          {
+            "name": "people",
+            "type": "number",
+            "title": {
+              "en": "People"
+            },
+            "example": 1
+          },
+          {
+            "name": "vehicles",
+            "type": "number",
+            "title": {
+              "en": "Vehicles"
+            },
+            "example": 0
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=camera"
+          }
+        ]
+      },
+      {
+        "id": "camera_vehicle",
+        "title": {
+          "en": "Detected a vehicle"
+        },
+        "tokens": [
+          {
+            "name": "image",
+            "type": "image",
+            "title": {
+              "en": "Recording"
+            }
+          },
+          {
+            "name": "people",
+            "type": "number",
+            "title": {
+              "en": "People"
+            },
+            "example": 0
+          },
+          {
+            "name": "vehicles",
+            "type": "number",
+            "title": {
+              "en": "Vehicles"
+            },
+            "example": 1
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=camera"
+          }
+        ]
+      },
       {
         "id": "door_opening",
         "title": {
@@ -118,6 +246,48 @@
     ]
   },
   "drivers": [
+    {
+      "name": {
+        "en": "Camera"
+      },
+      "class": "camera",
+      "capabilities": [
+        "alarm_motion"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/camera/assets/images/small.png",
+        "large": "/drivers/camera/assets/images/large.png",
+        "xlarge": "/drivers/camera/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "token"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "token"
+        }
+      ],
+      "id": "camera"
+    },
     {
       "name": {
         "en": "Garage Door"

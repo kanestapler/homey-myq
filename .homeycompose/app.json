@@ -11,6 +11,9 @@
     "en": "Your garage door, always in the loop"
   },
   "category": ["security"],
+  "tags": {
+    "en": ["myQ", "garage door", "garage", "Chamberlain", "LiftMaster", "Craftsman", "camera"]
+  },
   "permissions": [],
   "brandColor": "#0072CE",
   "images": {

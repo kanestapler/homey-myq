@@ -1,0 +1,40 @@
+{
+  "triggers": [
+    {
+      "id": "camera_motion",
+      "title": {
+        "en": "Recorded motion"
+      },
+      "hint": {
+        "en": "A new recording was made. Can take up to half a minute to reach Homey."
+      },
+      "tokens": [
+        { "name": "image", "type": "image", "title": { "en": "Recording" } },
+        { "name": "people", "type": "number", "title": { "en": "People" }, "example": 1 },
+        { "name": "vehicles", "type": "number", "title": { "en": "Vehicles" }, "example": 0 }
+      ]
+    },
+    {
+      "id": "camera_person",
+      "title": {
+        "en": "Detected a person"
+      },
+      "tokens": [
+        { "name": "image", "type": "image", "title": { "en": "Recording" } },
+        { "name": "people", "type": "number", "title": { "en": "People" }, "example": 1 },
+        { "name": "vehicles", "type": "number", "title": { "en": "Vehicles" }, "example": 0 }
+      ]
+    },
+    {
+      "id": "camera_vehicle",
+      "title": {
+        "en": "Detected a vehicle"
+      },
+      "tokens": [
+        { "name": "image", "type": "image", "title": { "en": "Recording" } },
+        { "name": "people", "type": "number", "title": { "en": "People" }, "example": 0 },
+        { "name": "vehicles", "type": "number", "title": { "en": "Vehicles" }, "example": 1 }
+      ]
+    }
+  ]
+}
