@@ -43,10 +43,11 @@ token once with [mitmproxy](https://mitmproxy.org):
 6. Remove the proxy and the certificate from the phone.
 7. In Homey, add a myQ device and paste the token. Devices you add later reuse it.
 
-Refresh tokens are single use. As soon as Homey has used the token, the session on the phone stops
-working and the myQ app will ask you to sign in again. That is expected: signing in gives the
-phone a new session of its own. Do not paste the token anywhere else, and do not use "sign out" in
-the myQ app between capturing the token and pasting it into Homey, because signing out revokes it.
+Refresh tokens are single use: every time one is used, myQ replaces it with a new one, which Homey
+stores. Use the last token the app received, and do not paste it anywhere else. In testing the
+myQ app on the phone kept working alongside Homey. If it does ask you to sign in again, that is
+fine, signing in gives the phone a new session of its own. Avoid "sign out" in the myQ app between
+capturing the token and pasting it into Homey, since signing out may revoke it.
 
 If myQ ever rejects Homey's session, the device shows as unavailable. Capture a new token and use
 Repair on the device to enter it.
