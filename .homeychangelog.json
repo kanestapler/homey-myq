@@ -1,5 +1,8 @@
 {
   "1.0.0": {
     "en": "First release: myQ garage doors and cameras."
+  },
+  "1.0.1": {
+    "en": "Added links to the setup guide."
   }
 }

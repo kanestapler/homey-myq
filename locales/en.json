@@ -2,7 +2,7 @@
   "pair": {
     "token": {
       "title": "Connect your myQ account",
-      "intro": "myQ has no public sign-in for other apps, so this app needs a refresh token captured from the official myQ app. See the app's GitHub page for how to get one.",
+      "intro": "myQ has no public sign-in for other apps, so this app needs a refresh token captured from the official myQ app. The steps are at github.com/kanestapler/homey-myq",
       "label": "Refresh token",
       "submit": "Connect"
     }

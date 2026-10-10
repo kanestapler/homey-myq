@@ -2,4 +2,4 @@ Bring your myQ garage door opener and myQ camera into Homey. See whether the doo
 
 For myQ cameras, Homey shows a live snapshot and the latest recording, and can start Flows when the camera records motion, a person or a vehicle. Live video is not available.
 
-myQ does not offer a sign-in for other apps, so connecting takes a one-time technical step: you capture a refresh token from the official myQ app and paste it into Homey. The steps are described on the app's GitHub page. This app is not made or endorsed by Chamberlain Group and may stop working if myQ changes its service.
+myQ does not offer a sign-in for other apps, so connecting takes a one-time technical step: you capture a refresh token from the official myQ app and paste it into Homey. The steps are described on the app's GitHub page, which you can open with the website link on this page. This app is not made or endorsed by Chamberlain Group and may stop working if myQ changes its service.

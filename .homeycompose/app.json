@@ -1,6 +1,6 @@
 {
   "id": "com.myq",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=12.0.0",
   "sdk": 3,
   "platforms": ["local"],
@@ -24,6 +24,8 @@
   "author": {
     "name": "Kane Stapler"
   },
+  "homepage": "https://github.com/kanestapler/homey-myq#getting-a-refresh-token",
+  "support": "https://github.com/kanestapler/homey-myq/issues",
   "source": "https://github.com/kanestapler/homey-myq",
   "bugs": {
     "url": "https://github.com/kanestapler/homey-myq/issues"
