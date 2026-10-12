@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 960" fill="none" stroke="#000" stroke-width="56" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="210" y="130" width="540" height="520" rx="110"/>
-  <circle cx="480" cy="390" r="130"/>
-  <path d="M480 650v120M320 830h320"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 960">
+  <path fill-rule="evenodd" d="M320 102H640A138 138 0 0 1 778 240V540A138 138 0 0 1 640 678H320A138 138 0 0 1 182 540V240A138 138 0 0 1 320 102ZM320 158A82 82 0 0 0 238 240V540A82 82 0 0 0 320 622H640A82 82 0 0 0 722 540V240A82 82 0 0 0 640 158ZM480 232A158 158 0 0 1 480 548A158 158 0 0 1 480 232ZM480 288A102 102 0 0 0 480 492A102 102 0 0 0 480 288Z"/>
+  <rect x="452" y="640" width="56" height="190" rx="28"/>
+  <rect x="292" y="802" width="376" height="56" rx="28"/>
 </svg>
