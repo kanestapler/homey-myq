@@ -7,6 +7,9 @@ and myQ cameras.
 
 - See whether the door is open, closed, opening or closing
 - Open and close the door from Homey and from Flows
+- "Has been open for [X] minutes" Flow trigger for left-open alerts. It fires once per threshold
+  each time the door is left open (open, or stopped part-way), and the count starts again only
+  when the door is fully closed, so a door closed and reopened never fires early
 - State comes from the myQ cloud, so the wall button, remotes and the myQ app are all reflected
 
 **Cameras**

@@ -74,6 +74,8 @@ class GarageDoorDevice extends Homey.Device {
     }
     if (doorState === 'unknown') return;
 
+    await this.checkOpenDuration(doorState).catch(this.error);
+
     const closed = doorState === 'closed';
     if (this.pending) {
       if (closed !== this.pending.closed && Date.now() < this.pending.until) return;
@@ -81,6 +83,45 @@ class GarageDoorDevice extends Homey.Device {
     }
     if (closed !== this.getCapabilityValue('garagedoor_closed')) {
       await this.setCapabilityValue('garagedoor_closed', closed);
+    }
+  }
+
+  /**
+   * Fires "Has been open for [[minutes]] minutes" once per threshold for each time the door is
+   * left open. Runs on every poll. The time the door left the closed position is kept in the
+   * store, so a Homey or app restart does not reset the count.
+   *
+   * @param {string} doorState current myQ door state, never 'unknown'
+   */
+  async checkOpenDuration(doorState) {
+    if (doorState === 'closed') {
+      if (this.getStoreValue('openedAt') != null) {
+        await this.unsetStoreValue('openedAt');
+        await this.unsetStoreValue('openFired');
+      }
+      return;
+    }
+
+    // Open, opening, closing or stopped part-way all count as open. If the app starts with the
+    // door already open, the count starts now.
+    let openedAt = this.getStoreValue('openedAt');
+    if (openedAt == null) {
+      openedAt = Date.now();
+      await this.setStoreValue('openedAt', openedAt);
+      await this.setStoreValue('openFired', []);
+    }
+
+    const minutesOpen = Math.floor((Date.now() - openedAt) / 60000);
+    const fired = this.getStoreValue('openFired') || [];
+    const card = this.driver.triggers.openFor;
+    const thresholds = new Set((await card.getArgumentValues(this)).map((args) => args.minutes));
+    const due = [...thresholds].filter((minutes) => minutes <= minutesOpen && !fired.includes(minutes));
+    if (!due.length) return;
+
+    await this.setStoreValue('openFired', [...fired, ...due]);
+    for (const minutes of due) {
+      this.log(`Door has been open ${minutesOpen} min, firing the ${minutes} min trigger`);
+      card.trigger(this, { minutes: minutesOpen }, { minutes }).catch(this.error);
     }
   }
 

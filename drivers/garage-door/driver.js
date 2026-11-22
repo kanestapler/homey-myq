@@ -8,6 +8,9 @@ class GarageDoorDriver extends MyQDriver {
     this.triggers = {
       opening: this.homey.flow.getDeviceTriggerCard('door_opening'),
       closing: this.homey.flow.getDeviceTriggerCard('door_closing'),
+      openFor: this.homey.flow.getDeviceTriggerCard('door_open_for')
+        // The device fires the card once per threshold and passes that threshold as state.
+        .registerRunListener(async (args, state) => args.minutes === state.minutes),
     };
 
     this.homey.flow.getConditionCard('door_state_is')

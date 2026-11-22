@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.myq",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "compatibility": ">=12.0.0",
   "sdk": 3,
   "platforms": [
@@ -185,6 +185,48 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=garage-door"
+          }
+        ]
+      },
+      {
+        "id": "door_open_for",
+        "title": {
+          "en": "Has been open for a number of minutes"
+        },
+        "titleFormatted": {
+          "en": "Has been open for [[minutes]] minutes"
+        },
+        "hint": {
+          "en": "Fires once each time the door is left open this long. The count starts when the door leaves the closed position and starts again when it is fully closed. Checked every 15 seconds."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=garage-door"
+          },
+          {
+            "name": "minutes",
+            "type": "number",
+            "title": {
+              "en": "Minutes"
+            },
+            "placeholder": {
+              "en": "30"
+            },
+            "min": 1,
+            "max": 1440,
+            "step": 1
+          }
+        ],
+        "tokens": [
+          {
+            "name": "minutes",
+            "type": "number",
+            "title": {
+              "en": "Minutes open"
+            },
+            "example": 30
           }
         ]
       }
